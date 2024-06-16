@@ -3,9 +3,11 @@
 @section('content')
 
 <section class="content-header">
+  @if(@session('message'))
   <h1>
-    Blank page
+    {{ session('message') }}
   </h1>
+  @endif
 </section>
 
 <section class="content">
