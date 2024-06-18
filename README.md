@@ -1,4 +1,4 @@
-# Clone repository ini
+# clone repository ini
 $ git clone https://github.com/krpauto/ecommerce-laravel
 
 # Kemudian jalankan command composer install, ini akan menginstall resources yang laravel butuhkan
