@@ -23,6 +23,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
+
       <li class="treeview">
         <a href="#">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -35,6 +36,20 @@
           <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
         </ul>
       </li>
+
+      <li>
+        <a href="{{ url('/admin/category') }}">
+          <i class="fa fa-file-text-o"></i> <span>Category</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ url('/admin/brands') }}">
+          <i class="fa fa-file-text-o"></i> <span>Brand</span>
+        </a>
+      </li>
+
+
     </ul>
   </section>
   <!-- /.sidebar -->
