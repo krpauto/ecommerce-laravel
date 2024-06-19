@@ -19,15 +19,26 @@
     </div>
 
     <div class="box-body">
+
+      @if ($errors->any())
+      <div class="alert alert-warning">
+        @foreach ($errors->all() as $error)
+        <div>{{ $error }}</div>
+        @endforeach
+      </div>
+      @endif
+
       <div class="nav-tabs-custom">
-        <form action="{{ url('admin/products') }}" method="post">
+        <form action="{{ url('admin/products') }}" method="post" enctype="multipart/form-data">
           @csrf
           <ul class="nav nav-tabs">
             <li class="active"><a href="#home-tab" data-toggle="tab" aria-expanded="true">Home Product</a></li>
             <li class=""><a href="#seotag-tab" data-toggle="tab" aria-expanded="false">SEO Tags Product</a></li>
             <li class=""><a href="#details-tab" data-toggle="tab" aria-expanded="false">Details Product</a></li>
+            <li class=""><a href="#image-tab" data-toggle="tab" aria-expanded="false">Image Product</a></li>
           </ul>
-          <div class="tab-content">
+          <div class="tab-content" style="padding: 10px !important;">
+
             <div class="tab-pane active" id="home-tab">
               <div class="row">
 
@@ -194,6 +205,22 @@
                       <option value="1">Hidden</option>
                     </select>
                     @error('status')
+                    <span class="help-block">{{ $message }}</span>
+                    @enderror
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="tab-pane" id="image-tab">
+              <div class="row">
+
+                <div class="col-md-4 mb-3">
+                  <div class="form-group">
+                    <label>Upload Product Image</label>
+                    <input type="file" name="image[]" multiple class="form-control">
+                    @error('original_price')
                     <span class="help-block">{{ $message }}</span>
                     @enderror
                   </div>
