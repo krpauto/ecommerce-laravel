@@ -1,11 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-<section class="content-header">
-  <h1>
-    Page List Products
-  </h1>
-</section>
 
 <section class="content">
   @if(session('message'))
@@ -15,6 +10,10 @@
     {{ session('message') }}
   </div>
   @endif
+  <div class="callout callout-info">
+    <h4 style="color: black">Page List Product</h4>
+    <p style="color: black">This page list all product</p>
+  </div>
   <div class="box">
     <div class="box-header with-border">
       <div class="pull-left">

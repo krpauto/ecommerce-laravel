@@ -42,7 +42,7 @@
         </a>
       </li>
 
-      <li class="treeview">
+      <li class="treeview {{ Request::is('admin/products*') ? 'active' : '' }}">
         <a href="#">
           <i class="fa fa-shopping-cart"></i> <span>Product</span>
           <span class="pull-right-container">
@@ -50,13 +50,24 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ url('admin/products/create') }}"><i class="fa fa-circle-o"></i>
-              Create Product</a></li>
-          <li><a href="{{ url('admin/products') }}"><i class="fa fa-circle-o"></i> List
-              Product</a></li>
+          <li class="{{ Request::is('admin/products/create') ? 'active' : '' }}">
+            <a href="{{ url('admin/products/create') }}">
+              <i class="fa fa-circle-o"></i> Create Product
+            </a>
+          </li>
+          <li class="{{ Request::is('admin/products') ? 'active' : '' }}">
+            <a href="{{ url('admin/products') }}">
+              <i class="fa fa-circle-o"></i> List Product
+            </a>
+          </li>
         </ul>
       </li>
 
+      <li class="{{ request()->is('admin/sliders') ? 'active' : '' }}">
+        <a href="{{ url('/admin/sliders') }}">
+          <i class="fa fa-image"></i> <span>Slider</span>
+        </a>
+      </li>
 
     </ul>
   </section>
