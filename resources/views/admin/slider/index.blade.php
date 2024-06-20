@@ -45,12 +45,14 @@
             <td>{{ $slider->title }}</td>
             <td>{{ $slider->description }}</td>
             <td>
-              <img src="{{ asset("$slider->image") }}" alt="Slider" style="height: 70px; width: auto;">
+              <img src="{{ asset($slider->image) }}" alt="Slider" style="height: 70px; width: auto;">
             </td>
             <td>{{ $slider->status == '1' ? 'Hidden' : 'Visible' }}</td>
             <td>
-              <a href="#" class="btn btn-primary btn-xs">Edit</a>
-              <a href="#" class="btn btn-danger btn-xs">Delete</a>
+              <a href="{{ url('admin/sliders/' . $slider->id . '/edit') }}" class="btn btn-primary btn-xs">Edit</a>
+              <a href="{{ url('admin/sliders/' . $slider->id . '/delete') }}"
+                onclick="return confirm('Are you sure you want to delete this slider?')"
+                class="btn btn-danger btn-xs">Delete</a>
             </td>
           </tr>
           @endforeach
