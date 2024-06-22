@@ -41,9 +41,6 @@
                 <div class="form-group">
                   <label>Description</label>
                   <textarea name="description" class="form-control" rows="3">{{ $slider->description }}</textarea>
-                  @error('description')
-                  <span class="help-block">{{ $message }}</span>
-                  @enderror
                 </div>
               </div>
 
