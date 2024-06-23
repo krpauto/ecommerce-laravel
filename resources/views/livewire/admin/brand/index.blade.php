@@ -35,6 +35,7 @@
                             <th style="width: 10px">No</th>
                             <th>Name</th>
                             <th>Slug</th>
+                            <th>Category</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -43,6 +44,13 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $brand->name }}</td>
                             <td>{{ $brand->slug }}</td>
+                            <td>
+                                @if ($brand->category)
+                                {{ $brand->category->name }}
+                                @else
+                                No Category Data
+                                @endif
+                            </td>
                             <td>{{ $brand->status == '1' ? 'Hidden' : 'Visible' }}</td>
                             <td>
                                 <a href="#" wire:click="editBrand({{ $brand->id }})" data-toggle="modal"

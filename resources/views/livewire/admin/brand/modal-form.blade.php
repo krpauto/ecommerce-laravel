@@ -28,6 +28,19 @@
           </div>
 
           <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" wire:model.defer="category_id">
+              <option value="">-- Select Category --</option>
+              @foreach ($categories as $categoryItem)
+              <option value="{{ $categoryItem->id }}">{{ $categoryItem->name }}</option>
+              @endforeach
+            </select>
+            @error('category_id')
+            <span class="help-block">{{ $message }}</span>
+            @enderror
+          </div>
+
+          <div class="form-group">
             <label>Status</label>
             <select class="form-control" wire:model.defer="status">
               <option value="0">Visible</option>
@@ -82,6 +95,19 @@
               <label>Slug Brand</label>
               <input type="text" class="form-control" wire:model.defer="slug" placeholder="Enter slug brand">
               @error('name')
+              <span class="help-block">{{ $message }}</span>
+              @enderror
+            </div>
+
+            <div class="form-group">
+              <label>Category</label>
+              <select class="form-control" wire:model.defer="category_id">
+                <option value="">-- Select Category --</option>
+                @foreach ($categories as $categoryItem)
+                <option value="{{ $categoryItem->id }}">{{ $categoryItem->name }}</option>
+                @endforeach
+              </select>
+              @error('category_id')
               <span class="help-block">{{ $message }}</span>
               @enderror
             </div>
