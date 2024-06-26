@@ -95,7 +95,25 @@
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @livewireScripts
+
+    <!-- Example of SweetAlert2 usage -->
+    <script>
+        document.addEventListener('wishlist-updated', event => {
+            Swal.fire({
+                title: event.detail.type === 'success' ? 'Success' : (event.detail.type === 'info' ? 'Info' : 'Error'),
+                text: event.detail.message,
+                icon: event.detail.type,
+                confirmButtonText: 'OK'
+            });
+        });
+    </script>
+
+    <!-- Example button to trigger the alert -->
+    {{-- <button onclick="showAlert()">Show Alert</button> --}}
+
 </body>
 
 </html>
