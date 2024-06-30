@@ -8,7 +8,7 @@ use App\Models\Wishlist;
 
 class View extends Component
 {
-    public $product, $category;
+    public $product, $category, $quantityCount = 1;
 
     public function addToWishlist($productId)
     {
@@ -41,6 +41,20 @@ class View extends Component
                 'type' => 'error'
             ]);
             return false;
+        }
+    }
+
+    public function incrementQuantity()
+    {
+        if ($this->quantityCount < 10) {
+            $this->quantityCount++;
+        }
+    }
+
+    public function decrementQuantity()
+    {
+        if ($this->quantityCount > 1) {
+            $this->quantityCount--;
         }
     }
 
