@@ -136,6 +136,7 @@ class View extends Component
                                 'quantity' => $this->quantityCount
                             ]);
 
+                            $this->emit('CartAddedUpdated');
                             $this->dispatchBrowserEvent('wishlist-updated', [
                                 'message' => 'Product added to cart',
                                 'type' => 'success'
