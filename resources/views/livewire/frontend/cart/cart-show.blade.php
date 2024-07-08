@@ -74,9 +74,10 @@
                                 </div>
                                 <div class="col-md-2 my-auto">
                                     @php
-                                    $totalPrice = $cartItem->product->selling_price * $cartItem->quantity;
+                                    $totalPrice += $cartItem->product->selling_price * $cartItem->quantity;
                                     @endphp
-                                    <label class="price">Rp {{ number_format($totalPrice, 0, ',', '.') }}</label>
+                                    <label class="price">Rp {{ number_format($cartItem->product->selling_price *
+                                        $cartItem->quantity, 0, ',', '.') }}</label>
                                 </div>
 
                                 <div class="col-md-1 col-5 my-auto">
@@ -100,6 +101,24 @@
                         <h4>No Cart Items Available</h4>
                         @endforelse
 
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 my-md-auto mt-3">
+                    <h4>
+                        Get the best deals on your favorite products <a href="{{ url('collections') }}">here</a>.
+                    </h4>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <div class="shadow-sm bg-white p-3">
+                        <h4>Total:
+                            <span class="float-end">Rp {{ number_format($totalPrice, 0, ',', '.') }}</span>
+                        </h4>
+                        <hr>
+                        <a href="{{ url('checkout') }}" class="btn btn-warning w-100">Checkout <i
+                                class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
